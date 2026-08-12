@@ -18,7 +18,7 @@ for host in range(1, 255):
      print(resultado)
      
      sock.close()
-    if resultado == 0:
+     if resultado == 0:
         print(f"✓ Dispositivo encontrado: {ip}")
 
         break
