@@ -5,11 +5,11 @@ print("=== CyberLab Network ===")
 rede = input("Digite a rede: ")
 
 portas = [80, 443, 22, 445, 3389]
-
+dispositivos = []
 for host in range(1, 255):
     ip = f"{rede}.{host}"
     
-
+   
     for porta in portas:
      sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
      sock.settimeout(0.05)
@@ -20,6 +20,9 @@ for host in range(1, 255):
      sock.close()
      if resultado == 0:
         print(f"✓ Dispositivo encontrado: {ip}")
-
+        dispositivos.append(ip)
         break
-      
+print("\nDispositivos encontrados:")
+
+for dispositivo in dispositivos:
+    print(dispositivo)
