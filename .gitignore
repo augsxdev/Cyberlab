@@ -1,0 +1,9 @@
+__pycache__/
+*.py[cod]
+.venv/
+database/cyberlab.db
+logs/*.log
+reports/*
+!reports/.gitkeep
+frontend/**/bin/
+frontend/**/obj/

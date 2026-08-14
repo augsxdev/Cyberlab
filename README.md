@@ -1,10 +1,10 @@
-# CYBERLAB
+# CyberLab
 
-> *"Observe. Analyze. Control."*
+MVP defensivo para inventário e análise de uma rede privada autorizada. Inclui API FastAPI, SQLite, scanner TCP limitado e uma interface WPF inicial em .NET 8.
 
----
+> Use somente em sistemas e redes para os quais você tem autorização. A API rejeita alvos públicos e exige confirmação explícita de consentimento.
 
-# STATUS
+## Execução do backend
 
 > **⚠️ PROJECT UNDER DEVELOPMENT**
 
@@ -106,11 +106,19 @@ CyberLab/
 ├── main.py
 ├── requirements.txt
 └── README.md
+=======
+```powershell
+cd CyberLab
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+python main.py
+>>>>>>> d3f070c (feat(core): introduce modular architecture and application entry point)
 ```
 
----
+Documentação: `http://127.0.0.1:8000/docs`
 
-<img align="right" width="300" src="catspider.jpg">
+Exemplo de scan autorizado:
 
 # TECHNOLOGY STACK
 
@@ -131,8 +139,27 @@ CyberLab/
 
 - Git
 - GitHub
+```powershell
+Invoke-RestMethod -Method Post http://127.0.0.1:8000/api/scan -ContentType application/json -Body '{"target":"127.0.0.1","ports":[80,443],"consent":true}'
+```
 
-<br><br><br><br>
+## Interface desktop
+
+Com o backend em execução:
+
+```powershell
+cd frontend\CyberLab.Desktop
+dotnet run
+```
+
+## Escopo deste MVP
+>>>>>>> d3f070c (feat(core): introduce modular architecture and application entry point)
+
+- Scan TCP de portas comuns; banners simples.
+- Descoberta limitada a redes privadas com até 254 hosts.
+- Alertas de postura (não são exploração nem confirmação de vulnerabilidade).
+- Histórico SQLite e exportação JSON, TXT e CSV.
+
 
 ---
 
@@ -216,3 +243,6 @@ Próximos passos: implementar ARP/MAC e fabricante com `scapy`, detecção de SO
 
 
 </p>
+=======
+Próximos passos: implementar ARP/MAC e fabricante com `scapy`, detecção de SO baseada em Nmap com consentimento e relatórios PDF.
+>>>>>>> d3f070c (feat(core): introduce modular architecture and application entry point)
